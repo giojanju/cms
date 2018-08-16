@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 
-import Layout from './hoc/Layout/Layout';
-import Routes from './routes/index';
+import Routes from './routes';
+import authReducer from './store/reducers/Auth';
 
 export default class App extends Component {
     render() {
+
+    	const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+		const store = createStore(authReducer, composeEnhancers(applyMiddleware()));
+
         return (
-	        <BrowserRouter>
-	            <Layout>
-	                {/*Routes*/}
-	                <Routes />
-	            </Layout>
-	        </BrowserRouter>
+			<Provider store={store}>
+			    <Routes />
+			</Provider>
         );
     }
 }

@@ -1,22 +1,23 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import ScrollToTop from '../components/ScrollToTop';
 
-import routes from './routes'
+import routes from './routes';
+import PrivateRoute from './private';
+import PublicRoute from './public';
+
 
 const Routes = () => (
-    <Switch>
-    	<ScrollToTop>
+	<BrowserRouter>
+	    <Switch>
 	        {routes.map((route, i) => {
-	            return <Route 
-	            	key={i} 
-	            	path={route.path} 
-	            	exact={route.exact} 
-	            	component={route.component} 
-	            />
+	            if(route.auth){
+	                return <PrivateRoute key={i} {...route}/>
+	            }else{
+	                return <PublicRoute key={i} {...route}/>
+	            }
 	        })}
-	    </ScrollToTop>
-    </Switch>
+	    </Switch>
+	</BrowserRouter>
 );
 
 export default Routes;
