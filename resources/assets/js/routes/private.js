@@ -3,25 +3,22 @@ import { Route, Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import Layout from '../hoc/Layout/Layout'
 
-const PrivateRoute = ({component: Component, ...rest}) => (
+const PrivateRoute = ({component: Component, isAuthenticated, ...rest}) => (
     <Route {...rest} render={props => (
-        this.props.auth ? (
-            <Layout>
-                
-            </Layout>
+        isAuthenticated ? (
+            <Component p={isAuthenticated} {...props}/>
         ) : (
             <Redirect to={{
-                pathname: '/',
+                pathname: '/login',
                 state: {from: props.location}
             }}/>
         )
     )}/>
 );
 
-
 const mapStateToProps = (state) => {
     return {
-        auth : state.isAuthenticated,
+        isAuthenticated: state.isAuthenticated,
     }
 };
 

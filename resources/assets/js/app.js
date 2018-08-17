@@ -6,6 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import Routes from './routes';
 import authReducer from './store/reducers/Auth';
 import thunk from 'redux-thunk';
+import * as actions from './store/actions/auth';
 
 export default class App extends Component {
     render() {

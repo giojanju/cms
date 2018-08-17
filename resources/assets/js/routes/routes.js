@@ -44,7 +44,7 @@ const routes = [
         component: ResetPassword
     },
     {
-        path: '/dashboard',
+        path: '/cp',
         exact: true,
         auth: true,
         component: Dashboard

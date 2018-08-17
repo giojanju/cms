@@ -28,3 +28,14 @@ export const authFaild = (payload) => {
     }
 }
 
+export const authLogout = () => {
+	return {
+        type: actionTypes.AUTH_LOGOUT,
+    }
+} 
+
+export const authCheck = () => {
+    return {
+        type: actionTypes.AUTH_CHECK
+    }
+}

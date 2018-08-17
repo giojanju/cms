@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import * as actions from '../../store/actions/auth';
 import * as actionTypes from '../../store/action-types';
+import axios from '../../axios';
 
 class Home extends Component {
 	constructor(props) {
@@ -17,6 +18,8 @@ class Home extends Component {
                 pathname: '/dfwadwad',
             }}/>
 		}
+
+		this.handleGetUser = this.handleGetUser.bind(this);
 	}
 
 	handleClick() {
@@ -29,16 +32,20 @@ class Home extends Component {
 		});
 	}
 
+	handleGetUser() {
+		console.log('this')
+		axios.get('user').then(re => {
+			console.log(re.data)
+		})
+		.catch(er => {
+			console.log(er.response.data)
+		})
+	}
+
 	render() {
 		return (
 			<div>
-				<h1>Auth</h1>
-				<p>{this.props.error}</p>
-				<form>
-					<input type="text" onChange={(e) => this.handleFiledChange(e)} value={this.state.email} name="email" />
-					<input type="password" onChange={(e) => this.handleFiledChange(e)} value={this.state.password} name="password" />
-					<button type="button" onClick={() => this.props.auth(this.state.email, this.state.password)}>Auth</button>
-				</form>
+				<h1>Home page</h1>
 			</div>
 		);
 	};
