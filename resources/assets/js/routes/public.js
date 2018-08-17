@@ -3,18 +3,22 @@ import { Route, Redirect } from 'react-router-dom';
 import Layout from '../hoc/Layout/Layout';
 import { connect } from 'react-redux';
 
-const PublicRoute = ({component: Component, isAuthenticated, ...rest}) => (
-    <Route {...rest} render={props => (
-	    !isAuthenticated ? (
-	        <Layout>
-	            <Component {...props}/>
-	        </Layout>
-	    ) : (
-	    	<Redirect to={{
-	    		pathname: '/cp',
-	    	}}/>
-	    )
-    )}/>
+const PublicRoute = ({component: Component, isAuthenticated, layout, ...rest}) => (
+	<Route {...rest} render={props => (
+		!isAuthenticated ? (
+			layout ? (
+				<Layout>
+					<Component {...props}/>
+				</Layout>
+			) : (
+				<Component {...props}/>
+			)
+		) : (
+			<Redirect to={{
+				pathname: '/cp',
+			}}/>
+		)
+	)}/>
 );
 
 const mapStateToProps = (state) => {

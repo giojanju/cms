@@ -4,6 +4,13 @@ import { Redirect } from 'react-router';
 import * as actions from '../../store/actions/auth';
 import * as actionTypes from '../../store/action-types';
 import axios from '../../axios';
+import './Auth.css';
+import * as helpers from '../../helpers/generalHelper';
+
+import Img from '../../components/UI/Img/Img';
+import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
+import Checkbox from '../../components/UI/Checkbox/Checkbox';
 
 class Login extends Component {
 	constructor(props) {
@@ -23,14 +30,43 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div>
-				<h1>Auth</h1>
-				<form>
-					<input type="text" onChange={(e) => this.handleFiledChange(e)} value={this.state.email} name="email" />
-					<input type="password" onChange={(e) => this.handleFiledChange(e)} value={this.state.password} name="password" />
-					<button type="button" onClick={() => this.props.auth(this.state.email, this.state.password)}>Auth</button>
-				</form>
-			</div>
+			<section className="auth-body">
+				<div className="auth-box">
+					<div className="d-flex h-100">
+						<div className="left">
+							<Img 
+								src={helpers.asset('logo.png')} 
+								mx={150} 
+								center={true} 
+							/>
+							<div className="login-form">
+								<form>
+									<Input
+										Type="text"
+										val=""
+										plc="Your email"
+									/>
+									<Input
+										Type="password"
+										val=""
+										plc="Your password"
+									/>
+									<Checkbox 
+										label="remember me"
+									/>
+									<Button
+										Type="primary block lg upper"
+										val="Login"
+									/>
+								</form>
+							</div>
+						</div>
+						<div className="right right d-flex align-items-center justify-content-center">
+							<h3 className="text-light">CMS Greeting text</h3>
+						</div>
+					</div>
+				</div>
+			</section>
 		);
 	}
 };

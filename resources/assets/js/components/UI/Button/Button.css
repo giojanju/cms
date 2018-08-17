@@ -1,0 +1,26 @@
+.btn {
+	border-radius: 2px !important;
+}
+.btn.btn-primary.primary {
+    background-color: #00AAFF;
+    border-color: #00a0f0;
+}
+
+.btn.btn-primary.primary:hover {
+	background-color: #00a0f0;
+    border-color: #00a0f0;
+}
+
+.btn.btn-primary.primary.block {
+	display: block;
+	width: 100%;
+}
+
+.btn.btn-primary.primary.lg {
+	padding: 10px 28px;
+}
+
+.upper {
+	text-transform: uppercase;
+	font-weight: bold;
+}

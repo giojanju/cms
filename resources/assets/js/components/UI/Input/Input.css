@@ -1,0 +1,17 @@
+input.form-control {
+	-moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px !important;
+	border-color: #eaeaea !important;
+	background-color: #fcfcfc !important;
+	height: 40px !important;
+}
+
+input.form-control:focus {
+	-moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
+}

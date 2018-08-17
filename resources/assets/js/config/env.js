@@ -1,0 +1,1 @@
+export const base_PATH = 'http://cms.local'

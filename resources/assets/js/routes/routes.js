@@ -11,49 +11,57 @@ const routes = [
         path: '/',
         exact: true,
         auth: false,
-        component: Home
+        component: Home,
+        layout: true,
     },
     {
         path: '/login/:social',
         exact: false,
         auth: false,
-        component: Home
+        component: Home,
+        layout: true,
     },
     {
         path: '/login',
         exact: true,
         auth: false,
-        component: Login
+        component: Login,
+        layout: false,
     },
     {
         path: '/register',
         exact: true,
         auth: false,
-        component: Register
+        component: Register,
+        layout: true,
     },
     {
         path: '/forgot-password',
         exact: true,
         auth: false,
-        component: ForgotPassword
+        component: ForgotPassword,
+        layout: true,
     },
     {
         path: '/reset-password/:token/:email',
         exact: true,
         auth: false,
-        component: ResetPassword
+        component: ResetPassword,
+        layout: true,
     },
     {
         path: '/cp',
         exact: true,
         auth: true,
-        component: Dashboard
+        component: Dashboard,
+        layout: true,
     },
     {
         path: '',
         exact: true,
         auth: false,
-        component: NoMatch
+        component: NoMatch,
+        layout: true,
     }
 ];
 
