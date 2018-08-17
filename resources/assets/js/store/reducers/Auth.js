@@ -10,28 +10,32 @@ const user = {
 
 const initialState = {
     isAuthenticated : false,
+    token: '',
+    error: '',
     user
 };
 
 const Auth = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.AUTH_LOGIN:
-            return authLogin(state);
+            return authLogin(state, action.payload);
         case actionTypes.AUTH_CHECK:
             return checkAuth(state);
         case actionTypes.AUTH_LOGOUT:
             return logout(state);
         case actionTypes.AUTH_FAILD:
-            return logout(state);
+            return authFaild(state, action.payload);
         default:
             return state;
     }
 };
 
-const authLogin = (state) => {
+const authLogin = (state, payload) => {
     return {
         ...state,
-        isAuthenticated: 1,
+        isAuthenticated: true,
+        token: payload.token,
+        error: false,
     }
     // const jwtToken = payload.token;
     // const user = payload.user[0];
@@ -60,6 +64,14 @@ const logout = (state) => {
     return {
         ...state,
         isAuthenticated: 'logout',
+    }
+}
+
+const authFaild = (state, payload) => {
+    return {
+        ...state,
+        error: payload.error,
+        isAuthenticated: false,
     }
 }
 

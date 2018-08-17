@@ -10,9 +10,9 @@ const Routes = () => (
 	<BrowserRouter>
 	    <Switch>
 	        {routes.map((route, i) => {
-	            if(route.auth){
+	            if (route.auth) {
 	                return <PrivateRoute key={i} {...route}/>
-	            }else{
+	            } else {
 	                return <PublicRoute key={i} {...route}/>
 	            }
 	        })}

@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../store/actions/index';
+import { Redirect } from 'react-router';
+import * as actions from '../../store/actions/auth';
 import * as actionTypes from '../../store/action-types';
 
 class Home extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			email: '',
+			password: '',
+		};
+		if (this.props.auth) {
+            <Redirect to={{
+                pathname: '/dfwadwad',
+            }}/>
+		}
+	}
+
 	handleClick() {
 		console.log('click');
+	}
+
+	handleFiledChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		});
 	}
 
 	render() {
 		return (
 			<div>
-				home page {this.props.auth}
-				<button onClick={this.props.auth}>Auth</button>
+				<h1>Auth</h1>
+				<p>{this.props.error}</p>
+				<form>
+					<input type="text" onChange={(e) => this.handleFiledChange(e)} value={this.state.email} name="email" />
+					<input type="password" onChange={(e) => this.handleFiledChange(e)} value={this.state.password} name="password" />
+					<button type="button" onClick={() => this.props.auth(this.state.email, this.state.password)}>Auth</button>
+				</form>
 			</div>
 		);
 	};
@@ -21,12 +47,13 @@ class Home extends Component {
 const mapStateToProps = (state) => {
 	return {
 		auth: state.isAuthenticated,
+		error: state.error,
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		auth: () => dispatch({type: actionTypes.AUTH_LOGIN})
+		auth: (email, password) => dispatch(actions.auth(email, password))
 	}
 }
 
