@@ -15,3 +15,8 @@ input.form-control:focus {
 	-webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
+
+input.form-control.is-invalid {
+	border-color: #dc3545 !important;
+    background-color: #fd5c5c4a !important;
+}

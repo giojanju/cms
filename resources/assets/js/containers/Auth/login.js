@@ -19,7 +19,14 @@ class Login extends Component {
 		this.state = {
 			email: '',
 			password: '',
+			errors: [],
 		};
+
+		this.handleFiledChange = this.handleFiledChange.bind(this);
+	}
+
+	componentDidMount() {
+		this.props.checkAuth();
 	}
 
 	handleFiledChange(event) {
@@ -43,13 +50,19 @@ class Login extends Component {
 								<form>
 									<Input
 										Type="text"
-										val=""
-										plc="Your email"
+										val={this.state.email}
+										plc="Email"
+										name="email"
+										change={this.handleFiledChange}
+										errors={this.props.errors}
 									/>
 									<Input
 										Type="password"
-										val=""
-										plc="Your password"
+										val={this.state.password}
+										plc="Password"
+										name="password"
+										change={this.handleFiledChange}
+										errors={this.props.errors}
 									/>
 									<Checkbox 
 										label="remember me"
@@ -57,6 +70,7 @@ class Login extends Component {
 									<Button
 										Type="primary block lg upper"
 										val="Login"
+										click={() => this.props.auth(this.state.email, this.state.password)}
 									/>
 								</form>
 							</div>
@@ -74,14 +88,15 @@ class Login extends Component {
 const mapStateToProps = (state) => {
 	return {
 		auth: state.isAuthenticated,
-		error: state.error,
+		errors: state.error,
 	};
 };
 
 
 const mapDispatchToProps = dispatch => {
 	return {
-		auth: (email, password) => dispatch(actions.auth(email, password))
+		auth: (email, password) => dispatch(actions.auth(email, password)),
+		checkAuth: () => dispatch(actions.authCheck()),
 	}
 }
 

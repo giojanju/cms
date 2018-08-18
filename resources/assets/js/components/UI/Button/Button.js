@@ -7,8 +7,9 @@ const button = (props) => {
 	return (
 		<div className="form-group">
 			<button
-				type={props.Type}
+				type='button'
 				className={`btn btn-primary ` + props.Type}
+				onClick={props.click}
 			>{props.val}</button>
 		</div>
 	);
