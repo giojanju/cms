@@ -35,6 +35,14 @@ class Login extends Component {
 	}
 
 	render() {
+		const { from } = this.props.location.state || { from: { pathname: '/' } };
+		const { isAuthenticated } = this.props;
+
+		if (isAuthenticated) {
+		    return (
+		        <Redirect to={from.pathname}/>
+		    )
+		}
 
 		return (
 			<section className="auth-body">
@@ -87,7 +95,7 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		auth: state.isAuthenticated,
+		isAuthenticated: state.isAuthenticated,
 		errors: state.error,
 	};
 };

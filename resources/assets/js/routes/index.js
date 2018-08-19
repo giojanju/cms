@@ -6,14 +6,14 @@ import PrivateRoute from './private';
 import PublicRoute from './public';
 
 
-const Routes = () => (
+const Routes = (props) => (
 	<BrowserRouter>
 	    <Switch>
 	        {routes.map((route, i) => {
 	            if (route.auth) {
-	                return <PrivateRoute key={i} {...route}/>
+	                return <PrivateRoute locale={props.locale} key={i} {...route}/>
 	            } else {
-	                return <PublicRoute key={i} {...route}/>
+	                return <PublicRoute locale={props.locale} key={i} {...route}/>
 	            }
 	        })}
 	    </Switch>

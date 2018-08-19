@@ -66,7 +66,7 @@ const checkAuth = (state) =>{
     }
 
     axios.get('user').then(re => {
-        if (re.data.status == 'Token is Expired') {
+        if (re.data.status) {
             localStorage.removeItem('jwt_token');
             axios.defaults.headers.common['Authorization'] = ``;
 

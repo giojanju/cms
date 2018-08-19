@@ -79,9 +79,22 @@ return [
     */
     'use_property_fallback' => true,
 
-    'locale' => 'ge',
+    'locale' => 'en',
 
-    'locales' => ['en', 'ge', 'ru'],
+    'locales' => [
+        [
+            'code' => 'en',
+            'native' => 'English',
+            'name' => 'English',
+            'flag' => 'eng.svg'
+        ],
+        [
+            'code' => 'ka',
+            'native' => 'ქართული',
+            'name' => 'Georgian',
+            'flag' => 'geo.svg',
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

@@ -27,6 +27,11 @@ class Sidebar extends Component {
 					icon: 'home',
 					path: '/cp/Posts',
 				},
+				{
+					label: 'Settings',
+					icon: 'cog',
+					path: '/cp/Settings',
+				},
 			]
 		};
 	}

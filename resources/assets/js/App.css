@@ -7,3 +7,31 @@ body {
     font-size: 15px;
     color: #676a6d;
 }
+
+.tab-container .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+	border-bottom-color: #00AAFF !important;
+    background-color: transparent;
+    border-color: transparent;
+    color: #00AAFF;
+}
+.tab-container .nav-tabs .nav-link:hover, .nav-tabs .nav-item.show .nav-link {
+	border-bottom-color: #00AAFF !important;
+    background-color: transparent;
+    border-color: transparent;
+    color: #00AAFF;
+}
+
+
+.tab-container .nav-tabs .nav-link, .nav-tabs .nav-item.show .nav-link {
+	color: rgb(109, 107, 127)
+}
+
+.tab-container .nav-tabs .nav-link img, .nav-tabs .nav-item.show .nav-link {
+	position: relative;
+	top: -1px;
+	margin-right: 10px;
+}
+
+.tab-container .nav-tabs {
+	margin-bottom: 17px;
+}

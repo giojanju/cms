@@ -7,6 +7,7 @@ import ResetPassword from '../containers/Auth/resetPassword'
 import Dashboard from '../containers/Cp/Dashboard/dashboard'
 import PostCreate from '../containers/Cp/Posts/Create/Create'
 import PostIndex from '../containers/Cp/Posts/Index/Index'
+import Settings from '../containers/Cp/Settings/Settings'
 
 const routes = [
     {
@@ -22,6 +23,14 @@ const routes = [
         auth: true,
         component: PostIndex,
         layout: true,
+    },
+    {
+        path: '/cp/Settings',
+        exact: true,
+        auth: true,
+        component: Settings,
+        layout: true,
+        title: 'Site settings',
     },
     {
         path: '/',

@@ -17,6 +17,18 @@ Route::namespace('Api')->group(function () {
 	Route::post('register', 'AuthController@register');
     Route::post('login', 'AuthController@login');
 
+    Route::post('locale', function () {
+        return [
+            'locale' => app()->getLocale(),
+        ];
+    });
+
+    Route::post('locales', function () {
+    	return [
+    		'locales' => config('app.locales'),
+    	];
+    });
+
     Route::group(['middleware' => ['jwt.verify']], function() {
         Route::get('user', 'AuthController@getAuthenticatedUser');
     });

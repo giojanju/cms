@@ -5,18 +5,12 @@ import { connect } from 'react-redux';
 
 const PublicRoute = ({component: Component, isAuthenticated, layout, ...rest}) => (
 	<Route {...rest} render={props => (
-		!isAuthenticated ? (
-			layout ? (
-				<Layout>
-					<Component {...props}/>
-				</Layout>
-			) : (
+		layout ? (
+			<Layout>
 				<Component {...props}/>
-			)
+			</Layout>
 		) : (
-			<Redirect to={{
-				pathname: '/cp',
-			}}/>
+			<Component {...props}/>
 		)
 	)}/>
 );
