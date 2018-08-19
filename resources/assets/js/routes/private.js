@@ -3,15 +3,15 @@ import { Route, Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import Layout from '../hoc/Layout/Layout'
 
-const PrivateRoute = ({component: Component, isAuthenticated, layout, ...rest}) => (
+const PrivateRoute = ({component: Component, isAuthenticated, layout, title, ...rest}) => (
     <Route {...rest} render={props => (
         isAuthenticated ? (
             layout ? (
-                <Layout>
-                    <Component p={isAuthenticated} {...props}/>
+                <Layout title={title}>
+                    <Component {...props}/>
                 </Layout>
             ) : (
-                <Component p={isAuthenticated} {...props}/>
+                <Component {...props}/>
             )
         ) : (
             <Redirect to={{

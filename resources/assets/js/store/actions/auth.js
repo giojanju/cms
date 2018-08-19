@@ -5,7 +5,7 @@ export const auth = (email, password) => {
 	return dispatch => {
 		axios.post('login', {email: email, password: password}).then(re => {
 			if (re.data) {
-				dispatch(authLogin(re.data));
+                dispatch(authLogin(re.data));
 			}
 		})
 		.catch(er => {

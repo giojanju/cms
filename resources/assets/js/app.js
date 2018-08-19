@@ -7,6 +7,7 @@ import Routes from './routes';
 import authReducer from './store/reducers/Auth';
 import thunk from 'redux-thunk';
 import * as actions from './store/actions/auth';
+import './App.css';
 
 export default class App extends Component {
     render() {

@@ -1,16 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Button.css';
 
 const button = (props) => {
 
-	return (
-		<div className="form-group">
-			<button
-				type='button'
+	let button = (
+		<button
+			type={props.submit ? 'submit' : 'button'}
+			className={`btn btn-primary ` + props.Type}
+			onClick={props.click}
+		>{props.val}</button>
+	);
+
+	if (props.to) {
+		button = (
+			<Link
+				to={props.to}
 				className={`btn btn-primary ` + props.Type}
 				onClick={props.click}
-			>{props.val}</button>
+			>{props.val}</Link>
+		);
+	}
+
+	return (
+		<div className="form-group">
+			{button}
 		</div>
 	);
 };

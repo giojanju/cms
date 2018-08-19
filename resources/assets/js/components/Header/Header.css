@@ -1,0 +1,207 @@
+.navbar.navbar-default {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: #fff;
+}
+.navbar-default .brand {
+    float: left;
+    padding: 0 39px;
+    background-color: #fff;
+}
+
+.navbar-btn {
+    float: left;
+    padding: 16px 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+}
+.navbar-nav > li > a {
+    padding: 28px 20px;
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+	.navbar-nav>li>a {
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	}
+}
+.navbar.navbar-default .container-fluid {
+	width: calc(100% - 218px);
+}
+
+.dropdown-toggle::after {
+	display: none !important;
+}
+.navbar-btn button {
+    font-size: 24px;
+    padding: 4px 8px;
+    line-height: .7;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.dropdown-toggle i {
+    top: 2px;
+    left: 6px;
+    position: relative;
+}
+.navbar-default .navbar-nav>li>a:hover {
+	color: #333;
+	text-decoration: none;
+}
+.navbar-nav .dropdown-menu {
+    border-top: 2px solid #ACB0B5;
+}
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.navbar-nav > li > .dropdown-menu {
+    padding: 0;
+    min-width: 200px;
+    min-width: 200px;
+    position: absolute;
+    top: 54px;
+    left: -48px;
+}
+.navbar-nav .dropdown-menu > li > a {
+    padding: 10px 20px;
+}
+.dropdown-menu > li > a {
+    color: #676a6d;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.dropdown-menu>li>a:hover {
+	color: #333;
+	text-decoration: none;
+}
+
+/* LEFT SIDEBAR */
+.left-sidebar {
+    width: 260px;
+    height: 100%;
+    position: fixed;
+    background: #2B333E;
+    transition: all 0.4s;
+}
+.sidebar-scroll {
+    width: 100%;
+    overflow-x: scroll;
+    height: 100%;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+.sidebar-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+/* Handle */
+.sidebar-scroll::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 2px; 
+}
+
+.left-sidebar ul {
+    list-style-type: none; 
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.left-sidebar ul>li>a {
+    display: block;
+    padding: 8px 15px;
+    color: #AEB7C2;
+    padding: 18px 30px;
+    border-left: 5px solid #2B333E;
+    position: relative;
+}
+
+.left-sidebar ul>li>a.active {
+    border-color: #00AAFF;
+    background-color: #252c35;
+}
+.left-sidebar ul li a.active span {
+    color: #fff;
+}
+.left-sidebar ul li a.active i {
+    color: #00AAFF;
+}
+
+.left-sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 18px;
+    position: relative;
+    top: 2px;
+}
+
+.left-sidebar ul li a span, i {
+    transition: all 0.4s
+}
+
+.left-sidebar ul li a:hover {
+    text-decoration: none;
+}
+.left-sidebar ul li a:hover span {
+    color: #fff;
+}
+.left-sidebar ul li a:hover i {
+    color: #00AAFF;
+}
+
+.left-sidebar .icon-submenu {
+    font-size: 15px !important;
+    position: absolute !important;
+    right: 20px;
+    top: 22px !important;
+}
+
+.left-sidebar ul li a.active i.icon-submenu {
+    transform: rotate(-90deg);
+}
+.left-sidebar ul li .sub-menu {
+    background-color: #252c35;
+}
+.left-sidebar ul li .sub-menu a {
+    display: block;
+    padding-left: 63px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #AEB7C2;
+    transition: all 0.4s;
+}
+.left-sidebar ul li .sub-menu a:hover {
+    color: #fff;
+}
+
+.left-sidebar ul li .sub-menu a.active {
+    color: #fff;   
+}

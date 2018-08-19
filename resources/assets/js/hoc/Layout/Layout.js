@@ -2,38 +2,64 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/auth';
+import TopBar from '../../components/Header/TopBar';
+import Sidebar from '../../components/Header/Sidebar';
+import Main from '../../components/Main/Main';
+import axios from '../../axios';
 
 class Layout extends Component {
-
-	componentDidMount() {
-		this.props.checkAuth();
-	}
-
 	constructor(props) {
 		super(props);
 
-		this.logout = this.logout.bind(this);
+		let sidebar = true;
+		if (window.innerWidth < 800) {
+			sidebar = false;
+		}
+
+		this.state = {
+			sidebar: sidebar,
+			user: {},
+		}
+
+		this.handleLogout = this.handleLogout.bind(this);
 	}
 
-	logout() {
-		console.log('logout')
+	componentDidMount() {
+		this.props.checkAuth();
+
+		axios.get('user').then(re => {
+			this.setState({
+				user: re.data.user,
+			})
+		})
+		.catch(er => {
+			console.log(er.response.data)
+		})
+	}
+
+	handleLogout() {
 		this.props.logout()
+	}
+
+	toggleSidebar() {
+		this.setState({
+			sidebar: !this.state.sidebar,
+		});
 	}
 
 	render () {
 		return (
-			<div>
-				<div>
-					<ul>
-						<li><NavLink to="/cp">Dashboard</NavLink></li>
-						<li><NavLink exact to="/">Home</NavLink></li>
-						<li><NavLink to="/login">Login</NavLink></li>
-						<li><a onClick={this.logout}>Logout</a></li>
-					</ul>
-				</div>			
-				<div>Text</div>			
-				{this.props.children}
-				<div>Footer</div>			
+			<div className="Wrapper">
+				<TopBar 
+					user={this.state.user}
+					sidebar={this.state.sidebar} 
+					toggleSidebar={() => this.toggleSidebar()} 
+					logOut={this.handleLogout} 
+				/>
+				<Sidebar sidebar={this.state.sidebar} />
+				<Main title={this.props.title} sidebar={this.state.sidebar}>
+					{this.props.children}
+				</Main>
 			</div>
 		);
 	}

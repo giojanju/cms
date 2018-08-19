@@ -20,4 +20,9 @@ Route::namespace('Api')->group(function () {
     Route::group(['middleware' => ['jwt.verify']], function() {
         Route::get('user', 'AuthController@getAuthenticatedUser');
     });
+
+    Route::prefix('posts')->name('posts.')->group(function() {
+        Route::post('/', 'PostController@json')->name('index');
+        Route::post('create', 'PostController@create')->name('create');
+    });
 });

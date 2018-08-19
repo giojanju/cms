@@ -1,5 +1,6 @@
 import React from 'react';
 
+import * as helpers from '../../../helpers/generalHelper';
 import './Img.css';
 
 const img = (props) => {
@@ -11,7 +12,7 @@ const img = (props) => {
 
 	return (
 		<img 
-			src={props.src} 
+			src={helpers.asset(props.img)} 
 			className={classname} 
 			style={{maxWidth: props.mx}} 
 		/>

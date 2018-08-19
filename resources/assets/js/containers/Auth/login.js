@@ -5,7 +5,6 @@ import * as actions from '../../store/actions/auth';
 import * as actionTypes from '../../store/action-types';
 import axios from '../../axios';
 import './Auth.css';
-import * as helpers from '../../helpers/generalHelper';
 
 import Img from '../../components/UI/Img/Img';
 import Input from '../../components/UI/Input/Input';
@@ -36,13 +35,14 @@ class Login extends Component {
 	}
 
 	render() {
+
 		return (
 			<section className="auth-body">
 				<div className="auth-box">
 					<div className="d-flex h-100">
 						<div className="left">
 							<Img 
-								src={helpers.asset('logo.png')} 
+								img={'logo.png'} 
 								mx={150} 
 								center={true} 
 							/>

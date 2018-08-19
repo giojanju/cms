@@ -56,12 +56,27 @@ const authFaild = (state, payload) => {
 }
 
 const checkAuth = (state) =>{
-    state = Object.assign({},state,{
+    state = Object.assign({}, state, {
         isAuthenticated : !!localStorage.getItem('jwt_token'),
+        token: localStorage.getItem('jwt_token'),
     });
-    if(state.isAuthenticated){
+
+    if (state.isAuthenticated) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('jwt_token')}`;
     }
+
+    axios.get('user').then(re => {
+        if (re.data.status == 'Token is Expired') {
+            localStorage.removeItem('jwt_token');
+            axios.defaults.headers.common['Authorization'] = ``;
+
+            return {
+                ...state,
+                isAuthenticated: false,
+                token: null,
+            }
+        }
+    });
 
     return state;
 };

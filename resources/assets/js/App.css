@@ -1,0 +1,9 @@
+html, body, #app {
+	/*height: 100%;*/
+}
+body {
+	background-color: #F3F5F8 !important;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 15px;
+    color: #676a6d;
+}
