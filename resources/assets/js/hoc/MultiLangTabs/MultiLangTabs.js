@@ -29,7 +29,7 @@ class MultiLangTabs extends Component {
 							    	aria-selected="true"
 							    >
 							    <Img img={locale.flag} mx={18} />
-							    {locale.name}
+								    {locale.name}
 							    </a>
 							</li>
 						); 

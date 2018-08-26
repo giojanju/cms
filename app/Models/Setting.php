@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Setting extends Model implements HasMedia
+class Setting extends Model
 {
-	use Translatable, HasMediaTrait;
+	use Translatable;
 
     protected $fillable = [
     	'key',
@@ -18,5 +16,5 @@ class Setting extends Model implements HasMedia
 
     protected $with = ['translations'];
 
-    public $translatedAttributes = ['locale_value'];
+    public $translatedAttributes = ['value_locale'];
 }

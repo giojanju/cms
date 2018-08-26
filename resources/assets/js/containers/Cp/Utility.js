@@ -13,7 +13,7 @@ const renderlangTabs = (callback) => {
 			>
 		        { callback(locale.code) }
 			</div>
-		); 
+		);
     });
 }
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SettingTranslation extends Model
 {
-    protected $fillable = ['locale_value'];
+    protected $fillable = ['value_locale'];
 
     public $timestamps = false;
 }

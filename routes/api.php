@@ -37,4 +37,9 @@ Route::namespace('Api')->group(function () {
         Route::post('/', 'PostController@json')->name('index');
         Route::post('create', 'PostController@create')->name('create');
     });
+
+    Route::prefix('settings')->name('settings.')->group(function() {
+        Route::post('/', 'SettingController@json')->name('index');
+        Route::post('create', 'SettingController@create')->name('create');
+    });
 });
