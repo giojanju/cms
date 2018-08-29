@@ -24,22 +24,24 @@ class SettingController extends CrudAbstract
             $item->delete();
         });
 
-    	foreach ($data as $key => $value) {
+    	foreach ($data as $lang => $value) {
     		$insertedArr = [];
-    		if (is_array($value)) {
-    			$insertedArr['key'] = $key;
 
-    			foreach ($value as $lang => $value_locale) {
+    		if (is_array($value)) {
+                // return $value;
+                foreach ($value as $field => $value_locale) {
+        			$insertedArr['key'] = $field;
     				$insertedArr[$lang]['value_locale'] = $value_locale;
     			}
 
     		} else {
     			$insertedArr = [
-    				'key' => $key,
+    				'key' => $lang,
     				'value' => $value,
     			];
     		}
 
+            print_r($insertedArr);
     		Setting::create($insertedArr);
     	}
     }
